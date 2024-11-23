@@ -1,0 +1,25 @@
+{% extends 'main/base.html' %}
+{% load static %}
+{% block content %}
+
+<div class="container-lg">
+  {% if form.errors %}
+    <div class="alert alert-danger alert-dismissible fade show" role="alert" id="message_reg">
+      There was an error filling in this form, please follow instructions and submit again.
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+  {% endif %}
+  <div class="shadow p-4 m-5 bg-body rounded">
+    <h1>Register</h1>
+
+    <form action="" method="POST">
+      {% csrf_token %}
+
+      {{ form.as_p }}
+      <br>
+      <button type="submit" class="btn btn-success">Submit</button>
+    </form>
+  </div>
+</div>
+
+{% endblock %}

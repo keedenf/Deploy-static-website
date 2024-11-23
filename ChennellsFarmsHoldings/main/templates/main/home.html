@@ -1,0 +1,48 @@
+{% extends 'main/base.html' %}
+{% load static %}
+{% block content %}
+
+<div class="citrus-container">
+    <img src="{% static 'assets/citrus-background.jpg' %}" alt="citrus">
+    <div class="row text-overlay">
+        <div class="text-center">
+            <h1 class="display-2 fw-bold text-center text-md-left">Chennells Farms</h1>
+            <p class="text-md-center mx-md-5 px-md-5 container-lg">Located in the heart of the Nkwalini Valley, Chennells farm caters for both local and export markets. Offering fresh citrus, grown by a team with over 50 years of experience.</p>
+            {% if user.is_authenticated %}
+                <a class="btn btn-outline-warning btn-lg" href="{% url 'products' %}" id="button">Products</a> 
+            {% else %}
+                <a class="btn btn-outline-warning btn-lg" href="{% url 'login' %}" id="button">Products</a> 
+            {% endif %}
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row mt-5 p-3">
+        <div class="col-md-5">
+            <img src="{% static 'assets/lemons_home.png' %}" alt="Image of lemons" class="img-fluid">
+        </div>
+        <div class="col-md-7">
+            <h1 class="text-center display-5 mt-5 fw-bold">Sun Kissed Citrus</h1>
+            <h1 class="text-center display-6">
+                We're passionate about providing the freshest, juiciest citrus fruits, sourced directly from our orchards. Whether you're a local customer or an international importer, we've got you covered.
+            </h1>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row mt-5 p-3">
+        <div class="col-md-7">
+            <h1 class="text-center display-5 mt-5 fw-bold">Taste the Sunshine</h1>
+            <h1 class="text-center display-6">
+                Indulge in the flurry of fresh citrus goods. Our fruits are carefully picked to ensure we provide the perfect eating, drinking or cooking experience. We deliver high-quality fruit to ensure a burst of flavor in every bite. 
+            </h1>
+        </div>
+        <div class="col-md-5">
+            <img src="{% static 'assets/oranges_home.png' %}" alt="Image of oranges" class="img-fluid">
+        </div>
+    </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,107 @@
+/* *{
+    border: 1px solid;
+} */
+
+#logo{
+    width: 100px;
+    transition: all 0.3s ease-out;
+}
+
+#logo:hover{
+    transform: scale(1.1);
+}
+
+.nav-link{
+    width: 100px;
+    transition: all 0.3s ease-out;
+}
+
+.nav-link:hover{
+    transform: scale(1.1);
+    color: rgb(59, 179, 72);
+}
+
+.citrus-container {
+    position: relative;
+    width: 100%;
+    height: 500px;
+    transition: ease-in-out 0.5s;
+}
+
+.citrus-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    flex-direction: column;
+}
+
+.citrus-container:hover {
+    box-shadow: 0 0 100px rgb(197, 197, 197);
+
+}
+
+.text-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(94, 48, 0, 0.2); 
+    text-shadow: 0 0 100px black;
+}
+
+.text-overlay h1 {
+    color: white;
+    margin-bottom: 10px;
+}
+
+.text-overlay p {
+    color: white;
+    font-size: 20px;
+}
+
+.text-overlay button {
+    padding: 10px 20px;
+    border-radius: 5px;
+}
+
+#button{
+    transition: ease-in-out 0.3s;
+}
+
+#button:hover{
+    transform: scale(1.1);
+}
+
+#button:active{
+    transform: scale(1);
+}
+
+#message{
+    position: absolute;
+    top: 100px;
+    z-index: 3;
+    width: 80%;
+    opacity: 75%;
+}
+
+#message_reg{
+    position: relative;
+    top: 100px;
+    z-index: 3;
+    width: 80%;
+    opacity: 75%;
+}
+
+#product_card{
+    transition: ease-in-out 0.5s;
+}
+
+#product_card:hover{
+    transform: scale(1.02);
+    box-shadow: 0 0 50px lightgray;
+}

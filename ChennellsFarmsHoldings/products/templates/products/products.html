@@ -1,0 +1,26 @@
+{% extends 'main/base.html' %}
+{% load static %}
+{% block content %}
+<div class="shadow p-4 m-5 bg-body rounded">
+
+    <h1 class="text-center my-3">Products</h1> 
+
+
+    <div class="row">
+        <div class="row d-flex justify-content-center">
+            {% for product in products %}
+                    <div class="card col-sm-6 col-md-4 col-lg-3 m-3 border-0" style="width: 18rem;" id="product_card">
+                        <img src="{{ product.image.url }}" class="card-img-top" alt="product image">
+                        <div class="card-body">
+                        <h5 class="card-title">{{ product.name }}</h5>
+                        <h4 class="card-title fw-bold">R{{ product.price }}</h4>
+                        <p class="card-text">{{ product.description }}</p>
+                        <a href="add_cart/{{ product.id }}" class="btn btn-outline-warning d-flex justify-content-center" id="button">Add to cart</a>
+                        </div>
+                    </div>
+            {% endfor %}
+        </div>
+    </div>
+
+</div>
+{% endblock %}
