@@ -1,1 +1,1 @@
-# Deploy-static-website
+# deploy-static-website
