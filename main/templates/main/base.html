@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Chennells Website</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'base-style.css' %}">
+    <script src="https://kit.fontawesome.com/5ffb487d3e.js" crossorigin="anonymous"></script>
+</head>
+  <body>
+    
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg bg-body-tertiary sticky-top">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="{% url 'home' %}"><img src="{% static 'assets/logo.png' %}" alt="logo" id="logo"></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse text-center" id="navbarNavAltMarkup">
+          <div class="navbar-nav"> 
+            <a class="nav-link" href="{% url 'home' %}" title="home"><i class="fa-solid fa-house"></i></a>
+            {% if user.is_authenticated %}
+              <a class="nav-link" href="{% url 'live' %}" title="live page"><i class="fa-solid fa-video"></i></a>
+              <a class="nav-link" href="{% url 'products' %}" title="products"><i class="fa-solid fa-lemon"></i></a>
+              <a class="nav-link" href="{% url 'cart' %}" title="cart"><i class="fa-solid fa-cart-shopping"></i></a>
+              <a class="nav-link" href="{% url 'logout_confirmation' %}" title="log out"><i class="fa-solid fa-user"></i></a>
+              {% if user.is_staff %}
+                <a class="nav-link" href="/admin/" title="admin"><i class="fa-solid fa-gear"></i></a>
+              {% endif %}
+            {% else %}
+              <a class="nav-link disabled" href="{% url 'live' %}" title="live page"><i class="fa-solid fa-video"></i></a>
+              <a class="nav-link disabled" href="{% url 'products' %}" title="varieties"><i class="fa-solid fa-lemon"></i></a>
+              <a class="nav-link disabled" href="{% url 'cart' %}" title="cart"><i class="fa-solid fa-cart-shopping"></i></a>
+              <a class="nav-link" href="{% url 'login' %}" title="login"><i class="fa-solid fa-user"></i></i></a>
+            {% endif %} 
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <div class="container-lg d-flex justify-content-center align-items-center">
+      {% if success_message %}
+        <div class="alert alert-success alert-dismissible fade show" role="alert" id="message">
+            {{ success_message }}
+          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+      {% endif %}
+    
+      {% if error_message %}
+        <div class="alert alert-danger alert-dismissible fade show" role="alert" id="message">
+          {{ error_message }}
+          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+      {% endif %}
+    </div>
+    
+    {% block content %}
+    {% endblock %}
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    </body>
+</html> 

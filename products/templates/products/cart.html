@@ -1,0 +1,37 @@
+{% extends 'main/base.html' %}
+{% load static %}
+{% block content %}
+<div class="shadow p-4 m-5 bg-body rounded">
+
+    <h1 class="text-center my-3">Cart</h1> 
+
+
+    <div class="row">
+        <div class="col-md-12">
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th>Product</th>
+                <th>Price</th>
+                <th>Quantity</th>
+                <th>Total</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for item in cart_items %}
+                <tr>
+                  <td>{{ item.product.name }}</td>
+                  <td>R{{ item.product.price }}</td>
+                  <td>{{ item.quantity }}</td>
+                  <td>R{{ item.total_price }}</td>  </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+          <a href="{% url 'clear_cart' %}" class="btn btn-success float-end" title="Clear Cart"><i class="fa-solid fa-trash-can"></i></a>
+        </div>
+      </div>
+      <hr>
+      <h3 class="fw-bold">TOTAL: R{{ total_price }}</h3>
+
+</div>
+{% endblock %}
